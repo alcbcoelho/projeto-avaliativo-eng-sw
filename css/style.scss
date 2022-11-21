@@ -1,0 +1,337 @@
+/////////////////////////////////////////////////
+// VARIABLES AND MIXINS
+/////////////////////////////////////////////////
+
+$main-font: "Roboto", sans-serif;
+$display-font: "Source Code Pro", sans-serif;
+
+$highlight-color: #00ff7f;
+$highlight-color-glow: #00ff7f4f;
+$highlight-color-zero-opacity: #00ff7f00;
+
+$darker-background-color: #222222;
+$lighter-background-color: #363636;
+
+$default-transition-duration: 0.3s;
+
+$symbol: ">";
+
+@mixin set-symbol {
+  color: $highlight-color;
+  content: $symbol;
+}
+
+@mixin thumbnail-highlight {
+  border-color: $highlight-color;
+  box-shadow: 0 0 12px $highlight-color-glow;
+  transform: scale(1.05, 1.05);
+}
+
+/////////////////////////////////////////////////
+// FONT SETUP
+/////////////////////////////////////////////////
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Source+Code+Pro:wght@500&display=swap");
+
+/////////////////////////////////////////////////
+// ANIMATION KEYFRAMES
+/////////////////////////////////////////////////
+
+@keyframes enlarge {
+  0% {
+    transform: scale(0.925, 0.925);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+
+/////////////////////////////////////////////////
+// CSS
+/////////////////////////////////////////////////
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  font: {
+    family: $main-font;
+    size: 16px;
+  }
+  color: #c0c0c0;
+}
+
+body {
+  background-image: radial-gradient(
+    circle,
+    $lighter-background-color,
+    $darker-background-color
+  );
+}
+
+header {
+  h1 {
+    display: inline;
+    position: relative;
+    font-family: "Source Code Pro", sans-serif;
+    color: #fff;
+
+    &::before {
+      @include set-symbol;
+      text-shadow: 0 0 10px $highlight-color-glow;
+      position: absolute;
+      left: -1.225em;
+    }
+  }
+
+  padding-top: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+a {
+  &,
+  &:link,
+  &:visited {
+    text-decoration: none;
+    color: $highlight-color;
+  }
+
+  &:hover,
+  &:active {
+    text-decoration: underline;
+  }
+}
+
+li {
+  list-style-type: square;
+  margin: 5px 0;
+}
+
+footer {
+  span {
+    color: $darker-background-color;
+    background-color: $highlight-color;
+    padding: 5px 15px;
+    border-radius: 20px;
+  }
+
+  text-align: center;
+  padding: 20px;
+  padding-bottom: 40px;
+}
+
+.fluorescent-green {
+  color: $highlight-color;
+  text-shadow: 0 0 10px $highlight-color-glow;
+}
+
+.main {
+  width: 65%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.flexbox {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.dev-button {
+  img {
+    border: 5px #36363600 solid;
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    transition: transform 0.25s, box-shadow 0.25s,
+      border-color $default-transition-duration;
+
+    &:hover {
+      @include thumbnail-highlight;
+    }
+  }
+
+  margin: 15px;
+  text-align: center;
+  align-self: center;
+  cursor: pointer;
+}
+
+.modal {
+  button {
+    font: {
+      family: $main-font;
+      size: 1em;
+      weight: 700;
+    }
+
+    &:hover,
+    &:active {
+      transform: scale(1, 1);
+      opacity: 1;
+      color: $lighter-background-color;
+      background-color: $highlight-color;
+      transition: background-color $default-transition-duration,
+        opacity $default-transition-duration,
+        transform $default-transition-duration;
+    }
+
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: $highlight-color;
+    border: 2px $highlight-color solid;
+    border-radius: 10px;
+    background: none;
+    text-align: center;
+    padding: 2px;
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+    transform: scale(0.9, 0.9);
+    transition: background-color $default-transition-duration,
+      opacity $default-transition-duration,
+      transform $default-transition-duration;
+  }
+
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Source Code Pro", sans-serif;
+    color: $highlight-color;
+    text-shadow: 0 0 12px $highlight-color-glow;
+
+    &::before {
+      margin: 0 20px 10px 0;
+      background-image: linear-gradient(
+        90deg,
+        $highlight-color-zero-opacity,
+        $highlight-color
+      );
+      display: inline-block;
+      height: 1px;
+      width: 10%;
+      content: "";
+    }
+
+    &::after {
+      margin: 0 0 10px 20px;
+      background-image: linear-gradient(
+        90deg,
+        $highlight-color,
+        $highlight-color-zero-opacity
+      );
+      display: inline-block;
+      height: 1px;
+      width: 10%;
+      content: "";
+    }
+  }
+
+  h2 {
+    color: $highlight-color;
+
+    &::after {
+      margin: 0 0 6px 20px;
+      background-image: linear-gradient(
+        90deg,
+        $highlight-color,
+        $highlight-color-zero-opacity
+      );
+      display: inline-block;
+      height: 1px;
+      width: 70%;
+      content: "";
+    }
+  }
+
+  h3 {
+    position: relative;
+    font-weight: 500;
+    color: #fff;
+    margin-left: 10px;
+
+    &::before {
+      @include set-symbol();
+      font: {
+        family: $display-font;
+        size: 0.75em;
+      }
+      position: absolute;
+      left: -1.5em;
+      bottom: 2.5px;
+    }
+  }
+
+  p,
+  ul {
+    margin: 20px 0 20px 20px;
+  }
+
+  object {
+    margin-right: 5px;
+  }
+
+  .dev-container {
+    img {
+      border-radius: 50%;
+      width: 500px;
+      margin: 30px auto;
+    }
+
+    width: 500px;
+    margin: 0 auto;
+  }
+
+  .section {
+    padding: 20px;
+
+    div {
+      &:last-child {
+        p {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  position: relative;
+  padding: 30px 50px;
+  background-color: $lighter-background-color;
+  border: 5px #fff solid;
+  border-radius: 20px;
+  box-shadow: 0 0 12px #ffffff3f;
+  margin-bottom: 20px;
+  animation: enlarge 0.7s ease-in-out;
+}
+
+.selected {
+  @include thumbnail-highlight;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Source+Code+Pro:wght@500&display=swap");
+@keyframes enlarge {
+  0% {
+    transform: scale(0.925, 0.925);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #c0c0c0;
+}
+
+body {
+  background-image: radial-gradient(circle, #363636, #222222);
+}
+
+header {
+  padding-top: 20px;
+  text-align: center;
+}
+header h1 {
+  display: inline;
+  position: relative;
+  font-family: "Source Code Pro", sans-serif;
+  color: #fff;
+}
+header h1::before {
+  color: #00ff7f;
+  content: ">";
+  text-shadow: 0 0 10px rgba(0, 255, 127, 0.3098039216);
+  position: absolute;
+  left: -1.225em;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+a, a:link, a:visited {
+  text-decoration: none;
+  color: #00ff7f;
+}
+a:hover, a:active {
+  text-decoration: underline;
+}
+
+li {
+  list-style-type: square;
+  margin: 5px 0;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  padding-bottom: 40px;
+}
+footer span {
+  color: #222222;
+  background-color: #00ff7f;
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+
+.fluorescent-green {
+  color: #00ff7f;
+  text-shadow: 0 0 10px rgba(0, 255, 127, 0.3098039216);
+}
+
+.main {
+  width: 65%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.flexbox {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.dev-button {
+  margin: 15px;
+  text-align: center;
+  align-self: center;
+  cursor: pointer;
+}
+.dev-button img {
+  border: 5px rgba(54, 54, 54, 0) solid;
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.3s;
+}
+.dev-button img:hover {
+  border-color: #00ff7f;
+  box-shadow: 0 0 12px rgba(0, 255, 127, 0.3098039216);
+  transform: scale(1.05, 1.05);
+}
+
+.modal {
+  position: relative;
+  padding: 30px 50px;
+  background-color: #363636;
+  border: 5px #fff solid;
+  border-radius: 20px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2470588235);
+  margin-bottom: 20px;
+  animation: enlarge 0.7s ease-in-out;
+}
+.modal button {
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #00ff7f;
+  border: 2px #00ff7f solid;
+  border-radius: 10px;
+  background: none;
+  text-align: center;
+  padding: 2px;
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+  transform: scale(0.9, 0.9);
+  transition: background-color 0.3s, opacity 0.3s, transform 0.3s;
+}
+.modal button:hover, .modal button:active {
+  transform: scale(1, 1);
+  opacity: 1;
+  color: #363636;
+  background-color: #00ff7f;
+  transition: background-color 0.3s, opacity 0.3s, transform 0.3s;
+}
+.modal h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Source Code Pro", sans-serif;
+  color: #00ff7f;
+  text-shadow: 0 0 12px rgba(0, 255, 127, 0.3098039216);
+}
+.modal h1::before {
+  margin: 0 20px 10px 0;
+  background-image: linear-gradient(90deg, rgba(0, 255, 127, 0), #00ff7f);
+  display: inline-block;
+  height: 1px;
+  width: 10%;
+  content: "";
+}
+.modal h1::after {
+  margin: 0 0 10px 20px;
+  background-image: linear-gradient(90deg, #00ff7f, rgba(0, 255, 127, 0));
+  display: inline-block;
+  height: 1px;
+  width: 10%;
+  content: "";
+}
+.modal h2 {
+  color: #00ff7f;
+}
+.modal h2::after {
+  margin: 0 0 6px 20px;
+  background-image: linear-gradient(90deg, #00ff7f, rgba(0, 255, 127, 0));
+  display: inline-block;
+  height: 1px;
+  width: 70%;
+  content: "";
+}
+.modal h3 {
+  position: relative;
+  font-weight: 500;
+  color: #fff;
+  margin-left: 10px;
+}
+.modal h3::before {
+  color: #00ff7f;
+  content: ">";
+  font-family: "Source Code Pro", sans-serif;
+  font-size: 0.75em;
+  position: absolute;
+  left: -1.5em;
+  bottom: 2.5px;
+}
+.modal p,
+.modal ul {
+  margin: 20px 0 20px 20px;
+}
+.modal object {
+  margin-right: 5px;
+}
+.modal .dev-container {
+  width: 500px;
+  margin: 0 auto;
+}
+.modal .dev-container img {
+  border-radius: 50%;
+  width: 500px;
+  margin: 30px auto;
+}
+.modal .section {
+  padding: 20px;
+}
+.modal .section div:last-child p {
+  margin-bottom: 0;
+}
+.modal .section:last-child {
+  padding-bottom: 0;
+}
+
+.selected {
+  border-color: #00ff7f;
+  box-shadow: 0 0 12px rgba(0, 255, 127, 0.3098039216);
+  transform: scale(1.05, 1.05);
+}
+
+.hidden {
+  display: none;
+}
+
+/*# sourceMappingURL=style.css.map */
